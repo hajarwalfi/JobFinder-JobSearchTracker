@@ -1,7 +1,8 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfileEditForm } from '../profile-edit-form/profile-edit-form';
-import { AuthService, User } from '../../../core/services/auth';
+import { User } from '../../../core/models/user.model';
+import { AuthService } from '../../../core/services/auth';
 
 @Component({
   selector: 'app-profile-page',

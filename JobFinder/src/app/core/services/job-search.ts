@@ -1,18 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, timeout, catchError, throwError } from 'rxjs';
-
-export interface JobOffer {
-  id: string;
-  title: string;
-  company: string;
-  location: string;
-  description: string;
-  url: string;
-  salary: string;
-  datePosted: string;
-  apiSource?: string;
-}
+import { JobOffer } from '../models/job-offer.model';
 
 interface AdzunaResponse {
   results: AdzunaJob[];

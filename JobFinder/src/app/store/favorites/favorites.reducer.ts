@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { FavoriteOffer } from '../../core/services/favorites';
+import { FavoriteOffer } from '../../core/models/favorite-offer.model';
 import * as FavoritesActions from './favorites.actions';
 
 export interface FavoritesState {

@@ -1,16 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-export interface FavoriteOffer {
-  id?: string;
-  userId: string;
-  offerId: string;
-  title: string;
-  company: string;
-  location: string;
-  url?: string;
-}
+import { FavoriteOffer } from '../models/favorite-offer.model';
 
 @Injectable({
   providedIn: 'root',

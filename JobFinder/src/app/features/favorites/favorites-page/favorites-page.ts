@@ -4,7 +4,7 @@ import { Observable, map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { FavoriteCard } from '../favorite-card/favorite-card';
 import { FavoritesStats } from '../favorites-stats/favorites-stats';
-import { FavoriteOffer } from '../../../core/services/favorites';
+import { FavoriteOffer } from '../../../core/models/favorite-offer.model';
 import {
   selectAllFavorites,
   selectFavoritesLoading,

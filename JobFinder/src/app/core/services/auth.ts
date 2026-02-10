@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, switchMap, tap, throwError, forkJoin, of } from 'rxjs';
-
-export interface User {
-  id?: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password?: string;
-}
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',

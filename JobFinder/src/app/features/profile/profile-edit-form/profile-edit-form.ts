@@ -1,6 +1,6 @@
 import { Component, input, output, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../../core/services/auth';
+import { User } from '../../../core/models/user.model';
 
 @Component({
   selector: 'app-profile-edit-form',

@@ -1,7 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { Application } from '../../../core/services/application';
+import { Application } from '../../../core/models/application.model';
 
 @Component({
   selector: 'app-application-card',

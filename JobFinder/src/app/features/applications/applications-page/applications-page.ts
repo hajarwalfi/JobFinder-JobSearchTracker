@@ -5,7 +5,8 @@ import { switchMap, tap, catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { ApplicationCard } from '../application-card/application-card';
 import { ApplicationsStats } from '../applications-stats/applications-stats';
-import { Application, ApplicationService } from '../../../core/services/application';
+import { Application } from '../../../core/models/application.model';
+import { ApplicationService } from '../../../core/services/application';
 import { AuthService } from '../../../core/services/auth';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { JobOffer } from '../../../core/services/job-search';
+import { JobOffer } from '../../../core/models/job-offer.model';
 import { AuthService } from '../../../core/services/auth';
 
 @Component({

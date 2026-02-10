@@ -1,9 +1,11 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
-import { JobSearchService, JobOffer } from '../../../core/services/job-search';
+import { JobOffer } from '../../../core/models/job-offer.model';
+import { JobSearchService } from '../../../core/services/job-search';
 import { AuthService } from '../../../core/services/auth';
-import { FavoritesService, FavoriteOffer } from '../../../core/services/favorites';
+import { FavoriteOffer } from '../../../core/models/favorite-offer.model';
+import { FavoritesService } from '../../../core/services/favorites';
 import { ApplicationService } from '../../../core/services/application';
 import { JobCard } from '../job-card/job-card';
 

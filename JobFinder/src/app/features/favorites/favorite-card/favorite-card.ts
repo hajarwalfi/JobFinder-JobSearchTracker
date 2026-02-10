@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { FavoriteOffer } from '../../../core/services/favorites';
+import { FavoriteOffer } from '../../../core/models/favorite-offer.model';
 
 @Component({
   selector: 'app-favorite-card',
