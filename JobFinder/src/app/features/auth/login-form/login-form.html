@@ -1,0 +1,64 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
+  <!-- Email -->
+  <div class="space-y-2">
+    <label
+      for="email"
+      class="block text-xs font-semibold text-slate-500 ml-1 uppercase tracking-wider"
+      >Email</label
+    >
+    <input
+      id="email"
+      formControlName="email"
+      type="email"
+      class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-[#FF9653]/30 focus:border-[#FF9653]/50 transition-all outline-none"
+      placeholder="votre&#64;email.com"
+    />
+    @if (loginForm.get('email')?.touched && loginForm.get('email')?.errors) {
+      <div class="mt-1.5 ml-1 text-rose-500 text-[11px] font-semibold">
+        @if (loginForm.get('email')?.errors?.['required']) {
+          Requis
+        } @else if (loginForm.get('email')?.errors?.['email']) {
+          Format invalide
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Password -->
+  <div class="space-y-2">
+    <div class="flex justify-between items-center ml-1">
+      <label
+        for="password"
+        class="block text-xs font-semibold text-slate-500 uppercase tracking-wider"
+        >Mot de passe</label
+      >
+      <a
+        href="#"
+        class="text-[11px] font-semibold text-[#FF9653] hover:text-[#e07a3a] transition-colors"
+        >Oublié ?</a
+      >
+    </div>
+    <input
+      id="password"
+      formControlName="password"
+      type="password"
+      class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-[#FF9653]/30 focus:border-[#FF9653]/50 transition-all outline-none"
+      placeholder="••••••••"
+    />
+    @if (loginForm.get('password')?.touched && loginForm.get('password')?.errors) {
+      <div class="mt-1.5 ml-1 text-rose-500 text-[11px] font-semibold">
+        @if (loginForm.get('password')?.errors?.['required']) {
+          Requis
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Submit -->
+  <button
+    type="submit"
+    class="w-full py-3 bg-gradient-to-r from-[#FF9653] to-[#FFBC7D] text-white rounded-xl font-bold text-sm transition-all active:scale-[0.98] shadow-lg shadow-orange-200/50 hover:shadow-orange-300/50 hover:shadow-xl mt-1"
+  >
+    Se connecter
+  </button>
+</form>
