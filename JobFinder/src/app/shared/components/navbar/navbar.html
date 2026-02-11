@@ -1,0 +1,202 @@
+<nav
+  class="sticky top-0 z-50 border-b border-white/40 bg-white/80 backdrop-blur-2xl shadow-[0_15px_60px_-35px_rgba(15,23,42,0.45)]"
+>
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-20 items-center justify-between gap-4">
+      <a routerLink="/" class="flex items-center gap-3 text-lg font-semibold text-slate-900">
+        <span class="inline-flex items-center justify-center text-[#FF9653]">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+            <rect
+              x="2"
+              y="7"
+              width="15"
+              height="11"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
+            <path
+              d="M6 7V5.5a3.5 3.5 0 0 1 7 0V7"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+            <rect
+              x="2"
+              y="9.5"
+              width="15"
+              height="2.5"
+              rx="0.5"
+              stroke="currentColor"
+              stroke-width="1.2"
+            />
+            <circle cx="17" cy="15.5" r="3.5" stroke="currentColor" stroke-width="1.7" />
+            <path
+              d="M19.8 18.3l2.2 2.2"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+        <div>
+          <p class="text-base font-semibold tracking-tight">JobFinder</p>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-3">
+        <div
+          class="flex items-center gap-1 rounded-full border border-slate-200/70 bg-white/70 px-2 py-1 text-sm font-medium shadow-inner shadow-white/40"
+        >
+          <a
+            routerLink="/search"
+            routerLinkActive="bg-slate-900 text-white"
+            class="px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 transition"
+          >
+            Recherche
+          </a>
+
+          @if (authService.isLoggedIn()) {
+            <a
+              routerLink="/favorites"
+              routerLinkActive="bg-slate-900 text-white"
+              class="px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 transition"
+            >
+              Favoris
+            </a>
+            <a
+              routerLink="/applications"
+              routerLinkActive="bg-slate-900 text-white"
+              class="px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 transition"
+            >
+              Candidatures
+            </a>
+            <a
+              routerLink="/profile"
+              routerLinkActive="bg-slate-900 text-white"
+              class="px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 transition"
+            >
+              Profil
+            </a>
+          }
+        </div>
+
+        @if (authService.isLoggedIn()) {
+          <button
+            (click)="logout()"
+            class="inline-flex items-center gap-2 rounded-2xl border border-red-200/70 px-4 py-2 text-sm font-semibold text-red-600 transition hover:border-red-300 hover:bg-red-50"
+          >
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v1"
+              />
+            </svg>
+            Déconnexion
+          </button>
+        } @else {
+          <a
+            routerLink="/login"
+            class="rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-white"
+          >
+            Connexion
+          </a>
+          <a
+            routerLink="/signup"
+            class="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:-translate-y-0.5"
+          >
+            <span>Créer un compte</span>
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h14m-7-7l7 7-7 7"
+              />
+            </svg>
+          </a>
+        }
+      </div>
+
+      <button
+        (click)="toggleMobileMenu()"
+        class="md:hidden rounded-2xl border border-slate-200/70 p-2 text-slate-700"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          @if (!mobileMenuOpen) {
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          } @else {
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          }
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  @if (mobileMenuOpen) {
+    <div
+      class="md:hidden border-t border-white/40 bg-white/90 px-4 pb-6 pt-2 backdrop-blur-xl shadow-inner shadow-white/40"
+    >
+      <nav class="space-y-2 text-sm font-semibold text-slate-600">
+        <a
+          routerLink="/search"
+          (click)="mobileMenuOpen = false"
+          class="block rounded-2xl bg-slate-50 px-4 py-3"
+          >Recherche</a
+        >
+
+        @if (authService.isLoggedIn()) {
+          <a
+            routerLink="/favorites"
+            (click)="mobileMenuOpen = false"
+            class="block rounded-2xl bg-slate-50 px-4 py-3"
+            >Favoris</a
+          >
+          <a
+            routerLink="/applications"
+            (click)="mobileMenuOpen = false"
+            class="block rounded-2xl bg-slate-50 px-4 py-3"
+            >Candidatures</a
+          >
+          <a
+            routerLink="/profile"
+            (click)="mobileMenuOpen = false"
+            class="block rounded-2xl bg-slate-50 px-4 py-3"
+            >Profil</a
+          >
+          <button
+            (click)="logout(); mobileMenuOpen = false"
+            class="w-full rounded-2xl border border-red-200 px-4 py-3 text-left text-red-600"
+          >
+            Déconnexion
+          </button>
+        } @else {
+          <a
+            routerLink="/login"
+            (click)="mobileMenuOpen = false"
+            class="block rounded-2xl border border-slate-200 px-4 py-3"
+            >Connexion</a
+          >
+          <a
+            routerLink="/signup"
+            (click)="mobileMenuOpen = false"
+            class="block rounded-2xl bg-slate-900 px-4 py-3 text-white"
+            >Créer un compte</a
+          >
+        }
+      </nav>
+    </div>
+  }
+</nav>
