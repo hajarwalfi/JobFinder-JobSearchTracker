@@ -1,26 +1,416 @@
 {
   "users": [
     {
-      "id": "0596",
-      "firstName": "Maia",
-      "lastName": "Swanson",
-      "email": "vexevy@mailinator.c"
-    },
-    {
-      "id": "da1d",
-      "firstName": "Ezekiel",
-      "lastName": "Flynn",
-      "email": "kyneboxiz@mailinator.com",
+      "id": "bbe2",
+      "firstName": "Hajar",
+      "lastName": "Walfi",
+      "email": "hajarwalfi@gmail.com",
       "password": "123456789"
     },
     {
-      "id": "15e1",
-      "firstName": "Kenneth",
-      "lastName": "Farmer",
-      "email": "fudug@mailinator.com",
+      "id": "d623",
+      "firstName": "Hicham",
+      "lastName": "Benalia",
+      "email": "hichambenalia@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": "be68",
+      "firstName": "Hamza",
+      "lastName": "ALhadouchi",
+      "email": "hamzaalhadouchi@gmail.com",
       "password": "123456789"
     }
   ],
-  "favoritesOffers": [],
-  "applications": []
+  "favoritesOffers": [
+    {
+      "id": "f23c",
+      "userId": "bbe2",
+      "offerId": "5641340192",
+      "title": "CONSEILLER DE VENTE - VENDEUR (H/F) SECTEUR BRICOLAGE",
+      "company": "Bricomarché",
+      "location": "Chasse-sur-Rhône, Vienne",
+      "url": "https://www.adzuna.fr/details/5641340192?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "67ba",
+      "userId": "bbe2",
+      "offerId": "5641286966",
+      "title": "Conseiller Immobilier H/F",
+      "company": "CENTURY 21",
+      "location": "11ème Arrondissement, Paris",
+      "url": "https://www.adzuna.fr/details/5641286966?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "7710",
+      "userId": "bbe2",
+      "offerId": "5641286383",
+      "title": "Conseiller Commercial en Immobilier H/F",
+      "company": "Capifrance",
+      "location": "Sainte-Luce-sur-Loire, Nantes",
+      "url": "https://www.adzuna.fr/details/5641286383?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "659d",
+      "userId": "bbe2",
+      "offerId": "5641286367",
+      "title": "Conseiller Commercial en Immobilier H/F",
+      "company": "Capifrance",
+      "location": "Savigny-le-Temple, Melun",
+      "url": "https://www.adzuna.fr/details/5641286367?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "c177",
+      "userId": "bbe2",
+      "offerId": "5641285786",
+      "title": "Conseiller en Immobilier H/F",
+      "company": "Optimhome",
+      "location": "Saint-Lys, Muret",
+      "url": "https://www.adzuna.fr/details/5641285786?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "98a6",
+      "userId": "bbe2",
+      "offerId": "5641285668",
+      "title": "Conseiller Immobilier H/F",
+      "company": "SAFTI",
+      "location": "Saint-Pierre, La Réunion",
+      "url": "https://www.adzuna.fr/details/5641285668?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "23d5",
+      "userId": "bbe2",
+      "offerId": "5641280442",
+      "title": "Auxiliaire de Vie H/F",
+      "company": "Vitalliance",
+      "location": "Isigny-sur-Mer, Bayeux",
+      "url": "https://www.adzuna.fr/details/5641280442?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "5241",
+      "userId": "bbe2",
+      "offerId": "5641280456",
+      "title": "Auxiliaire de Vie H/F",
+      "company": "Vitalliance",
+      "location": "Villebon-sur-Yvette, Palaiseau",
+      "url": "https://www.adzuna.fr/details/5641280456?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "0002",
+      "userId": "bbe2",
+      "offerId": "5641280433",
+      "title": "Auxiliaire de Vie H/F",
+      "company": "Vitalliance",
+      "location": "Bihorel, Rouen",
+      "url": "https://www.adzuna.fr/details/5641280433?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "bfe5",
+      "userId": "bbe2",
+      "offerId": "5641278743",
+      "title": "Auxiliaire de Vie en Alternance H/F",
+      "company": "Vitalliance",
+      "location": "Grand-Couronne, Rouen",
+      "url": "https://www.adzuna.fr/details/5641278743?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "0a0c",
+      "userId": "bbe2",
+      "offerId": "5641273773",
+      "title": "NEUROPSYCHOLOGUE",
+      "company": "EHPAD Plein Soleil Direction commune CH Belley Hopital Métropole Savoie",
+      "location": "Lhuis, Belley",
+      "url": "https://www.adzuna.fr/land/ad/5641273773?se=PgOhViMQ8RGN54km_8BaUQ&utm_medium=api&utm_source=394660a0&v=F3EA84619BB7F634FA2C779EB85B87488B64A074"
+    },
+    {
+      "id": "ed23",
+      "userId": "bbe2",
+      "offerId": "5641273774",
+      "title": "Psychologue de la direction commune de Doulaincourt et Poissons",
+      "company": "Maison de retraite - EHPAD Pougny",
+      "location": "Doulaincourt-Saucourt, Saint-Dizier",
+      "url": "https://www.adzuna.fr/land/ad/5641273774?se=SjzHbSMQ8RGCOqer9fzSag&utm_medium=api&utm_source=394660a0&v=649EFEFEC8290A39399F8EE2E7D59DD3471A6469"
+    },
+    {
+      "id": "6532",
+      "userId": "bbe2",
+      "offerId": "5641269495",
+      "title": "Business Manager H/F",
+      "company": "agap2 France",
+      "location": "Talence, Bordeaux",
+      "url": "https://www.adzuna.fr/details/5641269495?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "36bf",
+      "userId": "bbe2",
+      "offerId": "5641269496",
+      "title": "Business Manager H/F",
+      "company": "agap2 France",
+      "location": "Rangueuil, Toulouse",
+      "url": "https://www.adzuna.fr/details/5641269496?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "f5ed",
+      "userId": "bbe2",
+      "offerId": "5641269213",
+      "title": "Conseiller Clientèle Entrepreneurs H/F",
+      "company": "Michael Page",
+      "location": "Paris, Ile-de-France",
+      "url": "https://www.adzuna.fr/details/5641269213?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "b145",
+      "userId": "bbe2",
+      "offerId": "5641267453",
+      "title": "Educateur de Jeunes Enfants H/F",
+      "company": "Les Petits Chaperons Rouges",
+      "location": "Loire-Atlantique, Pays de la Loire",
+      "url": "https://www.adzuna.fr/details/5641267453?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "9bf8",
+      "userId": "bbe2",
+      "offerId": "5641264001",
+      "title": "Négociateur en Immobilier H/F",
+      "company": "Transaxia Sud Ouest",
+      "location": "Erstein, Sélestat-Erstein",
+      "url": "https://www.adzuna.fr/details/5641264001?utm_medium=api&utm_source=394660a0"
+    }
+  ],
+  "applications": [
+    {
+      "id": "6e81",
+      "userId": "bbe2",
+      "offerId": "5641340192",
+      "apiSource": "adzuna",
+      "title": "CONSEILLER DE VENTE - VENDEUR (H/F) SECTEUR BRICOLAGE",
+      "company": "Bricomarché",
+      "location": "Chasse-sur-Rhône, Vienne",
+      "url": "https://www.adzuna.fr/details/5641340192?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:18:44.647Z"
+    },
+    {
+      "id": "bde5",
+      "userId": "bbe2",
+      "offerId": "5641286966",
+      "apiSource": "adzuna",
+      "title": "Conseiller Immobilier H/F",
+      "company": "CENTURY 21",
+      "location": "11ème Arrondissement, Paris",
+      "url": "https://www.adzuna.fr/details/5641286966?utm_medium=api&utm_source=394660a0",
+      "status": "refuse",
+      "notes": "il ne me convient plus",
+      "dateAdded": "2026-02-22T19:18:47.345Z"
+    },
+    {
+      "id": "239b",
+      "userId": "bbe2",
+      "offerId": "5641286383",
+      "apiSource": "adzuna",
+      "title": "Conseiller Commercial en Immobilier H/F",
+      "company": "Capifrance",
+      "location": "Sainte-Luce-sur-Loire, Nantes",
+      "url": "https://www.adzuna.fr/details/5641286383?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:18:50.018Z"
+    },
+    {
+      "id": "678c",
+      "userId": "bbe2",
+      "offerId": "5641286367",
+      "apiSource": "adzuna",
+      "title": "Conseiller Commercial en Immobilier H/F",
+      "company": "Capifrance",
+      "location": "Savigny-le-Temple, Melun",
+      "url": "https://www.adzuna.fr/details/5641286367?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:18:52.214Z"
+    },
+    {
+      "id": "3672",
+      "userId": "bbe2",
+      "offerId": "5641286300",
+      "apiSource": "adzuna",
+      "title": "Conseiller Commercial en Immobilier H/F",
+      "company": "Capifrance",
+      "location": "Périgueux-Nord-Est, Périgueux",
+      "url": "https://www.adzuna.fr/details/5641286300?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:18:54.377Z"
+    },
+    {
+      "id": "bb8c",
+      "userId": "bbe2",
+      "offerId": "5641285786",
+      "apiSource": "adzuna",
+      "title": "Conseiller en Immobilier H/F",
+      "company": "Optimhome",
+      "location": "Saint-Lys, Muret",
+      "url": "https://www.adzuna.fr/details/5641285786?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:18:56.511Z"
+    },
+    {
+      "id": "1cb0",
+      "userId": "bbe2",
+      "offerId": "5641285668",
+      "apiSource": "adzuna",
+      "title": "Conseiller Immobilier H/F",
+      "company": "SAFTI",
+      "location": "Saint-Pierre, La Réunion",
+      "url": "https://www.adzuna.fr/details/5641285668?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:08.825Z"
+    },
+    {
+      "id": "4609",
+      "userId": "bbe2",
+      "offerId": "5641280442",
+      "apiSource": "adzuna",
+      "title": "Auxiliaire de Vie H/F",
+      "company": "Vitalliance",
+      "location": "Isigny-sur-Mer, Bayeux",
+      "url": "https://www.adzuna.fr/details/5641280442?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:11.079Z"
+    },
+    {
+      "id": "6b42",
+      "userId": "bbe2",
+      "offerId": "5641280456",
+      "apiSource": "adzuna",
+      "title": "Auxiliaire de Vie H/F",
+      "company": "Vitalliance",
+      "location": "Villebon-sur-Yvette, Palaiseau",
+      "url": "https://www.adzuna.fr/details/5641280456?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:13.679Z"
+    },
+    {
+      "id": "027b",
+      "userId": "bbe2",
+      "offerId": "5641280433",
+      "apiSource": "adzuna",
+      "title": "Auxiliaire de Vie H/F",
+      "company": "Vitalliance",
+      "location": "Bihorel, Rouen",
+      "url": "https://www.adzuna.fr/details/5641280433?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:16.458Z"
+    },
+    {
+      "id": "824b",
+      "userId": "bbe2",
+      "offerId": "5641278743",
+      "apiSource": "adzuna",
+      "title": "Auxiliaire de Vie en Alternance H/F",
+      "company": "Vitalliance",
+      "location": "Grand-Couronne, Rouen",
+      "url": "https://www.adzuna.fr/details/5641278743?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:18.798Z"
+    },
+    {
+      "id": "5060",
+      "userId": "bbe2",
+      "offerId": "5641273773",
+      "apiSource": "adzuna",
+      "title": "NEUROPSYCHOLOGUE",
+      "company": "EHPAD Plein Soleil Direction commune CH Belley Hopital Métropole Savoie",
+      "location": "Lhuis, Belley",
+      "url": "https://www.adzuna.fr/land/ad/5641273773?se=PgOhViMQ8RGN54km_8BaUQ&utm_medium=api&utm_source=394660a0&v=F3EA84619BB7F634FA2C779EB85B87488B64A074",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:20.921Z"
+    },
+    {
+      "id": "fb63",
+      "userId": "bbe2",
+      "offerId": "5641273774",
+      "apiSource": "adzuna",
+      "title": "Psychologue de la direction commune de Doulaincourt et Poissons",
+      "company": "Maison de retraite - EHPAD Pougny",
+      "location": "Doulaincourt-Saucourt, Saint-Dizier",
+      "url": "https://www.adzuna.fr/land/ad/5641273774?se=SjzHbSMQ8RGCOqer9fzSag&utm_medium=api&utm_source=394660a0&v=649EFEFEC8290A39399F8EE2E7D59DD3471A6469",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:40.688Z"
+    },
+    {
+      "id": "d0d0",
+      "userId": "bbe2",
+      "offerId": "5641269495",
+      "apiSource": "adzuna",
+      "title": "Business Manager H/F",
+      "company": "agap2 France",
+      "location": "Talence, Bordeaux",
+      "url": "https://www.adzuna.fr/details/5641269495?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:42.298Z"
+    },
+    {
+      "id": "82b5",
+      "userId": "bbe2",
+      "offerId": "5641269496",
+      "apiSource": "adzuna",
+      "title": "Business Manager H/F",
+      "company": "agap2 France",
+      "location": "Rangueuil, Toulouse",
+      "url": "https://www.adzuna.fr/details/5641269496?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:44.874Z"
+    },
+    {
+      "id": "0173",
+      "userId": "bbe2",
+      "offerId": "5641269213",
+      "apiSource": "adzuna",
+      "title": "Conseiller Clientèle Entrepreneurs H/F",
+      "company": "Michael Page",
+      "location": "Paris, Ile-de-France",
+      "url": "https://www.adzuna.fr/details/5641269213?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:46.961Z"
+    },
+    {
+      "id": "e091",
+      "userId": "bbe2",
+      "offerId": "5641267453",
+      "apiSource": "adzuna",
+      "title": "Educateur de Jeunes Enfants H/F",
+      "company": "Les Petits Chaperons Rouges",
+      "location": "Loire-Atlantique, Pays de la Loire",
+      "url": "https://www.adzuna.fr/details/5641267453?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:49.089Z"
+    },
+    {
+      "id": "b0d4",
+      "userId": "bbe2",
+      "offerId": "5641264001",
+      "apiSource": "adzuna",
+      "title": "Négociateur en Immobilier H/F",
+      "company": "Transaxia Sud Ouest",
+      "location": "Erstein, Sélestat-Erstein",
+      "url": "https://www.adzuna.fr/details/5641264001?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T19:19:51.438Z"
+    }
+  ]
 }
