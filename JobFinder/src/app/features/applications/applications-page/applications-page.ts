@@ -21,7 +21,7 @@ export class ApplicationsPage implements OnInit, OnDestroy {
   error = '';
 
   currentPage = 1;
-  itemsPerPage = 12;
+  itemsPerPage = 6;
 
   private refresh$ = new BehaviorSubject<void>(undefined);
 

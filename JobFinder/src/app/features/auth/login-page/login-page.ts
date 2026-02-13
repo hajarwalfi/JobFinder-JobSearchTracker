@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { LoginForm } from '../login-form/login-form';
 import { AuthHeader } from '../auth-header/auth-header';
@@ -15,6 +15,7 @@ export class LoginPage {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private cdr: ChangeDetectorRef,
   ) {}
 
   onLogin(formData: { email: string; password: string }) {
@@ -25,6 +26,7 @@ export class LoginPage {
       },
       error: (err) => {
         this.errorMessage = err.message;
+        this.cdr.detectChanges();
       },
     });
   }

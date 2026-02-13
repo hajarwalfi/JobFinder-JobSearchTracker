@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfileEditForm } from '../profile-edit-form/profile-edit-form';
 import { AuthService, User } from '../../../core/services/auth';
@@ -18,6 +18,7 @@ export class ProfilePage {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private cdr: ChangeDetectorRef,
   ) {
     this.user = this.authService.getCurrentUser();
   }
@@ -33,10 +34,16 @@ export class ProfilePage {
     this.authService.updateUser(updatedUser).subscribe({
       next: () => {
         this.user = this.authService.getCurrentUser();
-        this.successMessage = 'Profil mis à jour avec succès';
+        this.successMessage = 'Profil mis à jour avec succès ✓';
+        this.cdr.detectChanges();
+        setTimeout(() => {
+          this.successMessage = '';
+          this.cdr.detectChanges();
+        }, 4000);
       },
       error: () => {
         this.errorMessage = 'Erreur lors de la mise à jour du profil';
+        this.cdr.detectChanges();
       },
     });
   }
@@ -49,6 +56,7 @@ export class ProfilePage {
       },
       error: () => {
         this.errorMessage = 'Erreur lors de la suppression du compte';
+        this.cdr.detectChanges();
       },
     });
   }

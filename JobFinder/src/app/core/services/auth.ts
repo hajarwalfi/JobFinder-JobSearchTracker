@@ -65,7 +65,7 @@ export class AuthService {
 
   // Update user profile
   updateUser(updatedUser: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${updatedUser.id}`, updatedUser).pipe(
+    return this.http.patch<User>(`${this.apiUrl}/${updatedUser.id}`, updatedUser).pipe(
       tap((user) => {
         const { password: _, ...userWithoutPassword } = user;
         localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
