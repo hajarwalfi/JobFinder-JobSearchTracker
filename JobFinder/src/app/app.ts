@@ -1,52 +1,22 @@
 import { Component } from '@angular/core';
-import { JsonServerTest } from './services/json-server-test';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { Navbar } from './shared/components/navbar/navbar';
+import { Footer } from './shared/components/footer/footer';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet, Navbar, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
 })
 export class App {
-  users: any[] = [];
+  showLayout = true;
 
-  constructor(private jsonServerTest: JsonServerTest) {}
-
-  // GET - fetch all users
-  loadUsers() {
-    this.jsonServerTest.getUsers().subscribe({
-      next: (data) => {
-        this.users = data;
-        console.log('GET /users :', data);
-      },
-      error: (err) => console.error('GET error:', err)
-    });
-  }
-
-  // POST - add a test user
-  addTestUser() {
-    const newUser = {
-      firstName: 'Test',
-      lastName: 'User',
-      email: 'test@example.com',
-      password: '123456'
-    };
-    this.jsonServerTest.addUser(newUser).subscribe({
-      next: (data) => {
-        console.log('POST /users :', data);
-        this.loadUsers(); // reload after adding
-      },
-      error: (err) => console.error('POST error:', err)
-    });
-  }
-
-  // DELETE - delete a user by id
-  deleteUser(id: number) {
-    this.jsonServerTest.deleteUser(id).subscribe({
-      next: () => {
-        console.log('DELETE /users/' + id + ' : success');
-        this.loadUsers(); // reload after deleting
-      },
-      error: (err) => console.error('DELETE error:', err)
-    });
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe((e) => {
+        this.showLayout = !['/login', '/signup'].includes(e.urlAfterRedirects);
+      });
   }
 }
