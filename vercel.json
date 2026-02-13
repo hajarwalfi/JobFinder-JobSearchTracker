@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd JobFinder && npm install && npm run build",
+  "outputDirectory": "JobFinder/dist/JobFinder/browser",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
