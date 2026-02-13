@@ -38,7 +38,7 @@ export class JobSearchService {
   private appId = '394660a0';
   private appKey = '9714564bf03dd60c2dfa3dd83a41e703';
   private baseUrl = 'https://api.adzuna.com/v1/api/jobs';
-  private country = 'gb'; // gb = UK, fr = France, us = USA, etc.
+  private country = 'fr'; // gb = UK, fr = France, us = USA, etc.
 
   constructor(private http: HttpClient) {}
 
@@ -75,6 +75,11 @@ export class JobSearchService {
           if (keyword && keyword.trim()) {
             const lowerKeyword = keyword.trim().toLowerCase();
             jobs = jobs.filter((job) => job.title.toLowerCase().includes(lowerKeyword));
+          }
+          // Filtre par localisation : ne garder que les jobs dont la ville contient le mot recherché
+          if (location && location.trim()) {
+            const lowerLocation = location.trim().toLowerCase();
+            jobs = jobs.filter((job) => job.location.toLowerCase().includes(lowerLocation));
           }
           return {
             jobs,

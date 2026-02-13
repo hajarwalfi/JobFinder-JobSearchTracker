@@ -38,7 +38,7 @@
     @if (applications$ | async; as allApplications) {
       @if (allApplications.length > 0) {
         @if (paginatedApplications$ | async; as applications) {
-          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             @for (app of applications; track app.id) {
               <app-application-card
                 [application]="app"

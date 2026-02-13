@@ -23,7 +23,7 @@ export class FavoritesPage implements OnInit {
   loading$: Observable<boolean>;
 
   currentPage = 1;
-  itemsPerPage = 12;
+  itemsPerPage = 6;
 
   constructor(private store: Store) {
     this.favorites$ = this.store.select(selectAllFavorites);
