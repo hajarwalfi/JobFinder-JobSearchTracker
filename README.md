@@ -7,7 +7,7 @@
 <img src="https://readme-typing-svg.demolab.com?font=Quicksand&weight=700&size=38&duration=3000&pause=1000&color=FF9653&center=true&vCenter=true&width=320&height=50&lines=JobFinder" alt="JobFinder" />
 
 <p>
-  <img src="https://readme-typing-svg.demolab.com?font=Quicksand&weight=500&size=16&duration=4000&pause=2000&color=C4B5FD&center=true&vCenter=true&width=520&lines=Rechercher+%E2%80%A2+Sauvegarder+%E2%80%A2+Postuler+%E2%80%A2+R%C3%A9ussir" alt="Tagline" />
+  <img src="https://readme-typing-svg.demolab.com?font=Quicksand&weight=500&size=16&duration=4000&pause=2000&color=F9A8D4&center=true&vCenter=true&width=520&lines=Rechercher+%E2%80%A2+Sauvegarder+%E2%80%A2+Postuler+%E2%80%A2+R%C3%A9ussir" alt="Tagline" />
 </p>
 
 <br />
@@ -32,15 +32,18 @@ sauvegarder ses favoris et suivre ses candidatures.
 <br /><br />
 
 <a href="#-démarrage-rapide">
-<img src="https://img.shields.io/badge/D%C3%A9marrage-rapide-fecdd3?style=for-the-badge&labelColor=fff1f2" alt="start" />
+<img src="https://api.iconify.design/mdi/rocket-launch-outline.svg?color=%23fda4af&width=20&height=20" alt="start" />
+<b>Démarrage rapide</b>
 </a>
-&nbsp;
+&nbsp;&nbsp;&nbsp;
 <a href="#-fonctionnalités">
-<img src="https://img.shields.io/badge/Fonctionnalit%C3%A9s-apercu-ddd6fe?style=for-the-badge&labelColor=f5f3ff" alt="features" />
+<img src="https://api.iconify.design/mdi/puzzle-outline.svg?color=%23c4b5fd&width=20&height=20" alt="features" />
+<b>Fonctionnalités</b>
 </a>
-&nbsp;
+&nbsp;&nbsp;&nbsp;
 <a href="#-architecture">
-<img src="https://img.shields.io/badge/Architecture-projet-a7f3d0?style=for-the-badge&labelColor=f0fdf4" alt="archi" />
+<img src="https://api.iconify.design/mdi/folder-network-outline.svg?color=%2386efac&width=20&height=20" alt="archi" />
+<b>Architecture</b>
 </a>
 
 <br /><br />
@@ -277,9 +280,15 @@ src/app/
 
 #### Prérequis
 
-```
-Node.js  ≥ 18       npm  ≥ 9       Angular CLI  ≥ 21
-```
+<div align="center">
+
+<img src="https://img.shields.io/badge/Node.js-%E2%89%A5%2018-d9f99d?style=for-the-badge&logo=node.js&logoColor=65a30d&labelColor=f7fee7" alt="node" />
+&nbsp;
+<img src="https://img.shields.io/badge/npm-%E2%89%A5%209-fecdd3?style=for-the-badge&logo=npm&logoColor=e11d48&labelColor=fff1f2" alt="npm" />
+&nbsp;
+<img src="https://img.shields.io/badge/Angular%20CLI-%E2%89%A5%2021-e9d5ff?style=for-the-badge&logo=angular&logoColor=7c3aed&labelColor=faf5ff" alt="angular cli" />
+
+</div>
 
 #### Installation
 
@@ -306,10 +315,13 @@ npm start
 
 <div align="center">
 
-| | Service | URL |
-|:-:|:-:|:-:|
-| <img src="https://api.iconify.design/mdi/monitor.svg?color=%23f9a8d4&width=18&height=18" alt="app" /> | Application | [`localhost:4200`](http://localhost:4200) |
-| <img src="https://api.iconify.design/mdi/database-outline.svg?color=%23c4b5fd&width=18&height=18" alt="db" /> | JSON Server | [`localhost:3000`](http://localhost:3000) |
+<a href="http://localhost:4200">
+<img src="https://img.shields.io/badge/Application-localhost:4200-fecdd3?style=for-the-badge&logo=angular&logoColor=e11d48&labelColor=fff1f2" alt="app" />
+</a>
+&nbsp;&nbsp;
+<a href="http://localhost:3000">
+<img src="https://img.shields.io/badge/JSON%20Server-localhost:3000-e9d5ff?style=for-the-badge&logo=json&logoColor=7c3aed&labelColor=faf5ff" alt="api" />
+</a>
 
 </div>
 
