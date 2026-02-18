@@ -1,20 +1,22 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { JobOffer } from '../../../core/models/job-offer.model';
 import { JobSearchService } from '../../../core/services/job-search';
 import { AuthService } from '../../../core/services/auth';
-import { FavoriteOffer } from '../../../core/models/favorite-offer.model';
-import { FavoritesService } from '../../../core/services/favorites';
 import { ApplicationService } from '../../../core/services/application';
 import { JobCard } from '../job-card/job-card';
+import { selectAllFavorites } from '../../../store/favorites/favorites.selectors';
+import * as FavoritesActions from '../../../store/favorites/favorites.actions';
 
 @Component({
   selector: 'app-job-offers-section',
   imports: [JobCard, DatePipe],
   templateUrl: './job-offers-section.html',
 })
-export class JobOffersSection implements OnInit {
+export class JobOffersSection implements OnInit, OnDestroy {
   jobs: JobOffer[] = [];
   totalResults = 0;
   currentPage = 1;
@@ -24,12 +26,13 @@ export class JobOffersSection implements OnInit {
   selectedJob: JobOffer | null = null;
   favoriteIds: Set<string> = new Set();
   trackedApplicationIds: Set<string> = new Set();
+  private favoriteSub?: Subscription;
 
   constructor(
     private jobSearchService: JobSearchService,
     public authService: AuthService,
-    private favoritesService: FavoritesService,
     private applicationService: ApplicationService,
+    private store: Store,
     private router: Router,
     private cdr: ChangeDetectorRef,
   ) {}
@@ -63,12 +66,16 @@ export class JobOffersSection implements OnInit {
   loadFavoriteIds() {
     const user = this.authService.getCurrentUser();
     if (!user?.id) return;
-    this.favoritesService.getFavorites(user.id).subscribe({
-      next: (favs) => {
-        this.favoriteIds = new Set(favs.map((f) => f.offerId));
-        this.cdr.detectChanges();
-      },
+    this.store.dispatch(FavoritesActions.loadFavorites());
+    this.favoriteSub?.unsubscribe();
+    this.favoriteSub = this.store.select(selectAllFavorites).subscribe((favs) => {
+      this.favoriteIds = new Set(favs.map((f) => f.offerId));
+      this.cdr.detectChanges();
     });
+  }
+
+  ngOnDestroy() {
+    this.favoriteSub?.unsubscribe();
   }
 
   loadTrackedApplicationIds() {
@@ -93,7 +100,7 @@ export class JobOffersSection implements OnInit {
   onAddFavorite(job: JobOffer) {
     const user = this.authService.getCurrentUser();
     if (!user?.id) return;
-    const favorite: FavoriteOffer = {
+    const favorite = {
       userId: user.id,
       offerId: job.id,
       title: job.title,
@@ -101,30 +108,22 @@ export class JobOffersSection implements OnInit {
       location: job.location,
       url: job.url,
     };
-    this.favoritesService.addFavorite(favorite).subscribe({
-      next: () => {
-        this.favoriteIds.add(job.id);
-        this.cdr.detectChanges();
-      },
-    });
+    this.store.dispatch(FavoritesActions.addFavorite({ favorite }));
+    this.favoriteIds.add(job.id);
+    this.cdr.detectChanges();
   }
 
   onRemoveFavorite(job: JobOffer) {
     const user = this.authService.getCurrentUser();
     if (!user?.id) return;
-    this.favoritesService.getFavorites(user.id).subscribe({
-      next: (favs) => {
-        const fav = favs.find((f) => f.offerId === job.id);
-        if (fav?.id) {
-          this.favoritesService.removeFavorite(fav.id).subscribe({
-            next: () => {
-              this.favoriteIds.delete(job.id);
-              this.cdr.detectChanges();
-            },
-          });
-        }
-      },
-    });
+    this.store.select(selectAllFavorites).subscribe((favs) => {
+      const fav = favs.find((f) => f.offerId === job.id);
+      if (fav?.id) {
+        this.store.dispatch(FavoritesActions.removeFavorite({ id: fav.id }));
+        this.favoriteIds.delete(job.id);
+        this.cdr.detectChanges();
+      }
+    }).unsubscribe();
   }
 
   onTrackApplication(job: JobOffer) {

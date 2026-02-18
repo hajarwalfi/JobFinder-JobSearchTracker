@@ -148,7 +148,6 @@ export class JobListPage implements OnInit, OnDestroy {
     if (!user) return;
 
     if (this.trackedApplicationIds.has(job.id)) {
-      alert('Cette offre est déjà dans votre suivi de candidatures.');
       return;
     }
 
@@ -167,11 +166,7 @@ export class JobListPage implements OnInit, OnDestroy {
     this.applicationService.addApplication(application).subscribe({
       next: () => {
         this.trackedApplicationIds.add(job.id);
-        alert('Candidature ajoutée au suivi !');
         this.cdr.detectChanges();
-      },
-      error: () => {
-        alert("Erreur lors de l'ajout de la candidature.");
       },
     });
   }

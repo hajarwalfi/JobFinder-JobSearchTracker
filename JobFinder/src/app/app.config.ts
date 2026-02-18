@@ -20,6 +20,8 @@ export const appConfig: ApplicationConfig = {
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),
+      connectInZone: true,
+      autoPause: false,
     }),
   ],
 };

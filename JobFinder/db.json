@@ -24,15 +24,6 @@
   ],
   "favoritesOffers": [
     {
-      "id": "f23c",
-      "userId": "bbe2",
-      "offerId": "5641340192",
-      "title": "CONSEILLER DE VENTE - VENDEUR (H/F) SECTEUR BRICOLAGE",
-      "company": "Bricomarché",
-      "location": "Chasse-sur-Rhône, Vienne",
-      "url": "https://www.adzuna.fr/details/5641340192?utm_medium=api&utm_source=394660a0"
-    },
-    {
       "id": "67ba",
       "userId": "bbe2",
       "offerId": "5641286966",
@@ -175,6 +166,204 @@
       "company": "Transaxia Sud Ouest",
       "location": "Erstein, Sélestat-Erstein",
       "url": "https://www.adzuna.fr/details/5641264001?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "b242",
+      "userId": "bbe2",
+      "offerId": "5643002720",
+      "title": "Préparateur de Commande - Cariste H/F",
+      "company": "ADERIM",
+      "location": "Nogent-le-Roi, Dreux",
+      "url": "https://www.adzuna.fr/details/5643002720?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "d3e5",
+      "userId": "bbe2",
+      "offerId": "5643002697",
+      "title": "(H/F) Fondeur en fromagerie",
+      "company": "Interaction",
+      "location": "Audeux, Besançon",
+      "url": "https://www.adzuna.fr/details/5643002697?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "3542",
+      "userId": "bbe2",
+      "offerId": "5643014679",
+      "title": "Agent de Puériculture H/F",
+      "company": "People&Baby",
+      "location": "Aix en Provence Sud-Ouest, Aix-en-Provence",
+      "url": "https://www.adzuna.fr/details/5643014679?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "932f",
+      "userId": "bbe2",
+      "offerId": "5643014666",
+      "title": "Auxiliaire de Puericulture H/F",
+      "company": "People&Baby",
+      "location": "Aix en Provence Sud-Ouest, Aix-en-Provence",
+      "url": "https://www.adzuna.fr/details/5643014666?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "9b5f",
+      "userId": "bbe2",
+      "offerId": "5643014672",
+      "title": "Auxiliaire de Puériculture H/F",
+      "company": "LES PETITS CHAPERONS ROUGES",
+      "location": "Loiret, Centre",
+      "url": "https://www.adzuna.fr/details/5643014672?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "a166",
+      "userId": "bbe2",
+      "offerId": "5643039386",
+      "title": "Serveur F/H",
+      "company": "mateam Hôtesses",
+      "location": "Montrouge, Antony",
+      "url": "https://www.adzuna.fr/details/5643039386?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "31af",
+      "userId": "bbe2",
+      "offerId": "5643039359",
+      "title": "Responsable maintenance H/F",
+      "company": "SUP INTERIM VITTEL",
+      "location": "Vittel, Neufchâteau",
+      "url": "https://www.adzuna.fr/details/5643039359?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "7c23",
+      "userId": "bbe2",
+      "offerId": "5643039333",
+      "title": "Technicien de chantier H/F",
+      "company": "Manpower",
+      "location": "Brumath, Strasbourg-Campagne",
+      "url": "https://www.adzuna.fr/details/5643039333?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "86fc",
+      "userId": "bbe2",
+      "offerId": "5643039198",
+      "title": "SOUTIEN SCOLAIRE - JOB ETUDIANT URGENT - APPRENTUS",
+      "company": "APPRENTUS",
+      "location": "Calvados, Normandie",
+      "url": "https://www.adzuna.fr/details/5643039198?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "66b2",
+      "userId": "bbe2",
+      "offerId": "5643039329",
+      "title": "CHAUFFEUR ROUTIER CACES 3 H/F",
+      "company": "Menway Emploi Mulhouse",
+      "location": "Wittelsheim, Mulhouse",
+      "url": "https://www.adzuna.fr/details/5643039329?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "206f",
+      "userId": "bbe2",
+      "offerId": "5643039168",
+      "title": "PROFESSEUR DE MUSIQUE H/F",
+      "company": "APPRENTUS",
+      "location": "Hérault, Occitanie",
+      "url": "https://www.adzuna.fr/details/5643039168?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "4163",
+      "userId": "bbe2",
+      "offerId": "5643054203",
+      "title": "Vendeur Magasinier Caces 3 H/F",
+      "company": "SUP INTERIM STRASBOURG",
+      "location": "Geispolsheim, Strasbourg-Campagne",
+      "url": "https://www.adzuna.fr/details/5643054203?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "7744",
+      "userId": "bbe2",
+      "offerId": "5643054733",
+      "title": "Comptable H/F",
+      "company": "Manpower",
+      "location": "Salaise-sur-Sanne, Vienne",
+      "url": "https://www.adzuna.fr/details/5643054733?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "b5d3",
+      "userId": "bbe2",
+      "offerId": "5643054333",
+      "title": "Ajusteur-monteur aéronautique H/F",
+      "company": "Manpower",
+      "location": "Saint-Nazaire, Loire-Atlantique",
+      "url": "https://www.adzuna.fr/details/5643054333?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "022a",
+      "userId": "bbe2",
+      "offerId": "5643054296",
+      "title": "Ajusteur H/F",
+      "company": "Manpower",
+      "location": "Rochefort, Charente-Maritime",
+      "url": "https://www.adzuna.fr/details/5643054296?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "79c9",
+      "userId": "bbe2",
+      "offerId": "5643054190",
+      "title": "Macon traditionnel (H/F)",
+      "company": "Oxygène Intérim Mont De Marsan",
+      "location": "Aire-sur-l'Adour, Mont-de-Marsan",
+      "url": "https://www.adzuna.fr/details/5643054190?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "42eb",
+      "userId": "bbe2",
+      "offerId": "5643054180",
+      "title": "MÉCANICIEN MONTEUR SUPER H/F",
+      "company": "Menway Emploi Narbonne",
+      "location": "Narbonne, Aude",
+      "url": "https://www.adzuna.fr/details/5643054180?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "708d",
+      "userId": "bbe2",
+      "offerId": "5643054024",
+      "title": "Chargé de planification H/F",
+      "company": "Manpower",
+      "location": "Gentilly, L'Haÿ-les-Roses",
+      "url": "https://www.adzuna.fr/details/5643054024?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "08d6",
+      "userId": "bbe2",
+      "offerId": "5643053951",
+      "title": "MECANICIEN H/F",
+      "company": "Menway Emploi Colmar Transport",
+      "location": "Mulhouse, Haut-Rhin",
+      "url": "https://www.adzuna.fr/details/5643053951?utm_medium=api&utm_source=394660a0"
+    },
+    {
+      "id": "0232",
+      "userId": "bbe2",
+      "offerId": "5643062679",
+      "title": "Commercial en Communication (H/F)",
+      "company": "Groupe actu",
+      "location": "Orne, Normandie",
+      "url": "https://www.adzuna.fr/land/ad/5643062679?se=2tDk2R4R8RG-xarHZ9jJgw&utm_medium=api&utm_source=394660a0&v=7E2EDB15A9936A4D5060D75DF0423C8FB7952C50"
+    },
+    {
+      "id": "3f58",
+      "userId": "bbe2",
+      "offerId": "5643063862",
+      "title": "ALTERNANT(E) MECANICIEN(NE) POIDS LOURDS H/F",
+      "company": "AD Poids Lourds",
+      "location": "Chalais, Angoulême",
+      "url": "https://www.adzuna.fr/land/ad/5643063862?se=cAY8eh8R8RG9SpJ9e9Vomg&utm_medium=api&utm_source=394660a0&v=8576570F4E9B2C4E880CC29BD516C954F9AC08BA"
+    },
+    {
+      "id": "2a02",
+      "userId": "bbe2",
+      "offerId": "5643063877",
+      "title": "ALTERNANT(E) MECANICIEN(NE) POIDS LOURDS H/F",
+      "company": "AD Poids Lourds",
+      "location": "Limoges-Le Palais, Limoges",
+      "url": "https://www.adzuna.fr/land/ad/5643063877?se=aJUYjx8R8RG9SpJ9e9Vomg&utm_medium=api&utm_source=394660a0&v=B8BCC1CA5FBBCDD640A5EF250D32CC907F70A2AF"
     }
   ],
   "applications": [
@@ -411,6 +600,19 @@
       "status": "en_attente",
       "notes": "",
       "dateAdded": "2026-02-22T19:19:51.438Z"
+    },
+    {
+      "id": "4d5d",
+      "userId": "bbe2",
+      "offerId": "5643039386",
+      "apiSource": "adzuna",
+      "title": "Serveur F/H",
+      "company": "mateam Hôtesses",
+      "location": "Montrouge, Antony",
+      "url": "https://www.adzuna.fr/details/5643039386?utm_medium=api&utm_source=394660a0",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-24T01:01:14.308Z"
     }
   ]
 }
