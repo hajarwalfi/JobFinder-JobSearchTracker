@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": "0596",
+      "firstName": "Maia",
+      "lastName": "Swanson",
+      "email": "vexevy@mailinator.c"
+    },
+    {
+      "id": "da1d",
+      "firstName": "Ezekiel",
+      "lastName": "Flynn",
+      "email": "kyneboxiz@mailinator.com",
+      "password": "123456789"
+    },
+    {
+      "id": "15e1",
+      "firstName": "Kenneth",
+      "lastName": "Farmer",
+      "email": "fudug@mailinator.com",
+      "password": "123456789"
+    }
+  ],
+  "favoritesOffers": [],
+  "applications": []
+}
