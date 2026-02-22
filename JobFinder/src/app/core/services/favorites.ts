@@ -16,7 +16,7 @@ export interface FavoriteOffer {
   providedIn: 'root',
 })
 export class FavoritesService {
-  private apiUrl = 'http://localhost:3000/favoritesOffers';
+  private apiUrl = 'https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/favoritesOffers';
 
   constructor(private http: HttpClient) {}
 

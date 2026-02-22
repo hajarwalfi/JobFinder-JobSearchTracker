@@ -14,7 +14,7 @@ export interface User {
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/users';
+  private apiUrl = 'https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/users';
 
   constructor(private http: HttpClient) {}
 
@@ -76,20 +76,20 @@ export class AuthService {
   // Delete user account + associated data (favorites, applications)
   deleteAccount(userId: string): Observable<void> {
     return forkJoin([
-      this.http.get<any[]>(`http://localhost:3000/favoritesOffers?userId=${userId}`),
-      this.http.get<any[]>(`http://localhost:3000/applications?userId=${userId}`),
+      this.http.get<any[]>(`https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/favoritesOffers?userId=${userId}`),
+      this.http.get<any[]>(`https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/applications?userId=${userId}`),
     ]).pipe(
       switchMap(([favorites, applications]) => {
         const deletions: Observable<void>[] = [];
 
         // Delete all user's favorites
         favorites.forEach((fav) => {
-          deletions.push(this.http.delete<void>(`http://localhost:3000/favoritesOffers/${fav.id}`));
+          deletions.push(this.http.delete<void>(`https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/favoritesOffers/${fav.id}`));
         });
 
         // Delete all user's applications
         applications.forEach((app) => {
-          deletions.push(this.http.delete<void>(`http://localhost:3000/applications/${app.id}`));
+          deletions.push(this.http.delete<void>(`https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/applications/${app.id}`));
         });
 
         // Delete the user account
