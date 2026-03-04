@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Application } from '../models/application.model';
 import { db } from './firebase';
 import {
@@ -43,5 +43,20 @@ export class ApplicationService {
 
   removeApplication(id: string): Observable<void> {
     return from(deleteDoc(doc(db, this.collectionName, id)));
+  }
+
+  removeApplicationByOfferId(userId: string, offerId: string): Observable<void> {
+    const q = query(
+      collection(db, this.collectionName),
+      where('userId', '==', userId),
+      where('offerId', '==', offerId),
+    );
+    return from(getDocs(q)).pipe(
+      switchMap((snapshot) => {
+        const deletions = snapshot.docs.map((d) => deleteDoc(d.ref));
+        return from(Promise.all(deletions));
+      }),
+      map(() => void 0),
+    );
   }
 }

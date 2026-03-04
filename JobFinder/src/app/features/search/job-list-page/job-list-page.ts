@@ -5,6 +5,7 @@ import { SearchBar } from '../search-bar/search-bar';
 import { JobCard } from '../job-card/job-card';
 import { JobOffersSection } from '../job-offers-section/job-offers-section';
 import { JobOffer } from '../../../core/models/job-offer.model';
+import { Application } from '../../../core/models/application.model';
 import { JobSearchService } from '../../../core/services/job-search';
 import { AuthService } from '../../../core/services/auth';
 import { ApplicationService } from '../../../core/services/application';
@@ -30,6 +31,7 @@ export class JobListPage implements OnInit, OnDestroy {
   private currentLocation = '';
   favoriteIds: Set<string> = new Set();
   trackedApplicationIds: Set<string> = new Set();
+  private trackedApplications: Application[] = [];
   private favoriteSub?: Subscription;
 
   constructor(
@@ -97,6 +99,7 @@ export class JobListPage implements OnInit, OnDestroy {
     if (!user?.id) return;
     this.applicationService.getApplications(user.id).subscribe({
       next: (apps) => {
+        this.trackedApplications = apps;
         this.trackedApplicationIds = new Set(apps.map((a) => a.offerId));
         this.cdr.detectChanges();
       },
@@ -145,14 +148,25 @@ export class JobListPage implements OnInit, OnDestroy {
 
   onTrackApplication(job: JobOffer) {
     const user = this.authService.getCurrentUser();
-    if (!user) return;
+    if (!user?.id) return;
 
     if (this.trackedApplicationIds.has(job.id)) {
+      // Un-track: query Firestore directly and delete
+      this.applicationService.removeApplicationByOfferId(user.id, job.id).subscribe({
+        next: () => {
+          this.trackedApplicationIds.delete(job.id);
+          this.trackedApplications = this.trackedApplications.filter((a) => a.offerId !== job.id);
+          this.cdr.detectChanges();
+        },
+        error: (err) => {
+          console.error('Failed to remove application:', err);
+        },
+      });
       return;
     }
 
     const application = {
-      userId: user.id!,
+      userId: user.id,
       offerId: job.id,
       apiSource: job.apiSource || '',
       title: job.title,
@@ -164,9 +178,13 @@ export class JobListPage implements OnInit, OnDestroy {
       dateAdded: new Date().toISOString(),
     };
     this.applicationService.addApplication(application).subscribe({
-      next: () => {
+      next: (saved) => {
         this.trackedApplicationIds.add(job.id);
+        this.trackedApplications.push(saved);
         this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Failed to add application:', err);
       },
     });
   }
