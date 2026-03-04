@@ -3,6 +3,7 @@
   "outputDirectory": "dist/JobFinder/browser",
   "framework": null,
   "rewrites": [
+    { "source": "/api/adzuna/(.*)", "destination": "https://api.adzuna.com/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
