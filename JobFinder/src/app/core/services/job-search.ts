@@ -20,15 +20,13 @@ interface AdzunaJob {
   created: string;
 }
 
-import { environment } from '../../../environments/environment';
-
 @Injectable({
   providedIn: 'root',
 })
 export class JobSearchService {
   private appId = '394660a0';
   private appKey = '9714564bf03dd60c2dfa3dd83a41e703';
-  private baseUrl = environment.production ? '/api/adzuna/v1/api/jobs' : 'https://api.adzuna.com/v1/api/jobs';
+  private baseUrl = 'https://api.adzuna.com/v1/api/jobs';
   private country = 'fr'; // gb = UK, fr = France, us = USA, etc.
 
   constructor(private http: HttpClient) {}
