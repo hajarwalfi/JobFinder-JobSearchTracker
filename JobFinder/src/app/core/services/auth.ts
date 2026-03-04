@@ -1,37 +1,55 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, map, switchMap, tap, throwError, forkJoin, of } from 'rxjs';
+import { Observable, from, throwError, forkJoin, of } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { User } from '../models/user.model';
+import { db } from './firebase';
+import {
+  collection,
+  addDoc,
+  deleteDoc,
+  updateDoc,
+  doc,
+  query,
+  where,
+  getDocs,
+  getDoc,
+} from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/users';
-
-  constructor(private http: HttpClient) {}
+  private usersCollection = 'users';
 
   // Register a new user
   register(user: User): Observable<User> {
-    // First check if email already exists
-    return this.http.get<User[]>(`${this.apiUrl}?email=${user.email}`).pipe(
-      switchMap((existingUsers) => {
-        if (existingUsers.length > 0) {
+    const q = query(collection(db, this.usersCollection), where('email', '==', user.email));
+    return from(getDocs(q)).pipe(
+      switchMap((snapshot) => {
+        if (!snapshot.empty) {
           return throwError(() => new Error('Cet email est déjà utilisé'));
         }
-        return this.http.post<User>(this.apiUrl, user);
+        return from(addDoc(collection(db, this.usersCollection), user)).pipe(
+          map((docRef) => ({ ...user, id: docRef.id })),
+        );
       }),
     );
   }
 
-  // Login: check email + password against JSON Server
+  // Login: check email + password against Firestore
   login(email: string, password: string): Observable<User> {
-    return this.http.get<User[]>(`${this.apiUrl}?email=${email}&password=${password}`).pipe(
-      map((users) => {
-        if (users.length === 0) {
+    const q = query(
+      collection(db, this.usersCollection),
+      where('email', '==', email),
+      where('password', '==', password),
+    );
+    return from(getDocs(q)).pipe(
+      map((snapshot) => {
+        if (snapshot.empty) {
           throw new Error('Email ou mot de passe incorrect');
         }
-        const user = users[0];
+        const docSnap = snapshot.docs[0];
+        const user = { id: docSnap.id, ...docSnap.data() } as User;
         // Store user without password in localStorage
         const { password: _, ...userWithoutPassword } = user;
         localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
@@ -58,7 +76,9 @@ export class AuthService {
 
   // Update user profile
   updateUser(updatedUser: User): Observable<User> {
-    return this.http.patch<User>(`${this.apiUrl}/${updatedUser.id}`, updatedUser).pipe(
+    const docRef = doc(db, this.usersCollection, updatedUser.id!);
+    return from(updateDoc(docRef, { ...updatedUser })).pipe(
+      map(() => updatedUser),
       tap((user) => {
         const { password: _, ...userWithoutPassword } = user;
         localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
@@ -68,25 +88,25 @@ export class AuthService {
 
   // Delete user account + associated data (favorites, applications)
   deleteAccount(userId: string): Observable<void> {
-    return forkJoin([
-      this.http.get<any[]>(`https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/favoritesOffers?userId=${userId}`),
-      this.http.get<any[]>(`https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/applications?userId=${userId}`),
-    ]).pipe(
-      switchMap(([favorites, applications]) => {
+    const favsQuery = query(collection(db, 'favoritesOffers'), where('userId', '==', userId));
+    const appsQuery = query(collection(db, 'applications'), where('userId', '==', userId));
+
+    return forkJoin([from(getDocs(favsQuery)), from(getDocs(appsQuery))]).pipe(
+      switchMap(([favsSnapshot, appsSnapshot]) => {
         const deletions: Observable<void>[] = [];
 
         // Delete all user's favorites
-        favorites.forEach((fav) => {
-          deletions.push(this.http.delete<void>(`https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/favoritesOffers/${fav.id}`));
+        favsSnapshot.docs.forEach((d) => {
+          deletions.push(from(deleteDoc(doc(db, 'favoritesOffers', d.id))));
         });
 
         // Delete all user's applications
-        applications.forEach((app) => {
-          deletions.push(this.http.delete<void>(`https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/applications/${app.id}`));
+        appsSnapshot.docs.forEach((d) => {
+          deletions.push(from(deleteDoc(doc(db, 'applications', d.id))));
         });
 
         // Delete the user account
-        deletions.push(this.http.delete<void>(`${this.apiUrl}/${userId}`));
+        deletions.push(from(deleteDoc(doc(db, this.usersCollection, userId))));
 
         return deletions.length > 0 ? forkJoin(deletions) : of([]);
       }),

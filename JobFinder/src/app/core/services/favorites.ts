@@ -1,25 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { FavoriteOffer } from '../models/favorite-offer.model';
+import { db } from './firebase';
+import { collection, addDoc, deleteDoc, doc, query, where, getDocs } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoritesService {
-  private apiUrl = 'https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/favoritesOffers';
-
-  constructor(private http: HttpClient) {}
+  private collectionName = 'favoritesOffers';
 
   getFavorites(userId: string): Observable<FavoriteOffer[]> {
-    return this.http.get<FavoriteOffer[]>(`${this.apiUrl}?userId=${userId}`);
+    const q = query(collection(db, this.collectionName), where('userId', '==', userId));
+    return from(getDocs(q)).pipe(
+      map((snapshot) => snapshot.docs.map((d) => ({ id: d.id, ...d.data() }) as FavoriteOffer)),
+    );
   }
 
   addFavorite(favorite: FavoriteOffer): Observable<FavoriteOffer> {
-    return this.http.post<FavoriteOffer>(this.apiUrl, favorite);
+    const { id, ...data } = favorite;
+    return from(addDoc(collection(db, this.collectionName), data)).pipe(
+      map((docRef) => ({ ...favorite, id: docRef.id })),
+    );
   }
 
   removeFavorite(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return from(deleteDoc(doc(db, this.collectionName, id)));
   }
 }

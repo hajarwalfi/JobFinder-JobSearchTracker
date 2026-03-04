@@ -1,29 +1,47 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Application } from '../models/application.model';
+import { db } from './firebase';
+import {
+  collection,
+  addDoc,
+  deleteDoc,
+  updateDoc,
+  doc,
+  query,
+  where,
+  getDocs,
+} from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApplicationService {
-  private apiUrl = 'https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/applications';
-
-  constructor(private http: HttpClient) {}
+  private collectionName = 'applications';
 
   getApplications(userId: string): Observable<Application[]> {
-    return this.http.get<Application[]>(`${this.apiUrl}?userId=${userId}`);
+    const q = query(collection(db, this.collectionName), where('userId', '==', userId));
+    return from(getDocs(q)).pipe(
+      map((snapshot) => snapshot.docs.map((d) => ({ id: d.id, ...d.data() }) as Application)),
+    );
   }
 
   addApplication(application: Application): Observable<Application> {
-    return this.http.post<Application>(this.apiUrl, application);
+    const { id, ...data } = application;
+    return from(addDoc(collection(db, this.collectionName), data)).pipe(
+      map((docRef) => ({ ...application, id: docRef.id })),
+    );
   }
 
   updateApplication(id: string, updates: Partial<Application>): Observable<Application> {
-    return this.http.patch<Application>(`${this.apiUrl}/${id}`, updates);
+    const docRef = doc(db, this.collectionName, id);
+    return from(updateDoc(docRef, { ...updates })).pipe(
+      map(() => ({ ...updates, id }) as Application),
+    );
   }
 
   removeApplication(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return from(deleteDoc(doc(db, this.collectionName, id)));
   }
 }
