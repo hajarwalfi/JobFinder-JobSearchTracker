@@ -7,7 +7,7 @@ import { FavoriteOffer } from '../models/favorite-offer.model';
   providedIn: 'root',
 })
 export class FavoritesService {
-  private apiUrl = 'https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/favoritesOffers';
+  private apiUrl = 'http://localhost:3000/favoritesOffers';
 
   constructor(private http: HttpClient) {}
 

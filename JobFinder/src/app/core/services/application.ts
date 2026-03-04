@@ -7,7 +7,7 @@ import { Application } from '../models/application.model';
   providedIn: 'root',
 })
 export class ApplicationService {
-  private apiUrl = 'https://my-json-server.typicode.com/hajarwalfi/JobFinder-JobSearchTracker/applications';
+  private apiUrl = 'http://localhost:3000/applications';
 
   constructor(private http: HttpClient) {}
 
